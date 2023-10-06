@@ -80,14 +80,6 @@ import { getEcommerceCart } from '../utils/get-ecommerce-cart';
  *            $ref: '#/definitions/MockEcommerceProduct'
  */
 
-/**
- * @openapi
- * definitions:
- *   MockEcommerceCartList:
- *     type: array
- *     items:
- *       $ref: '#/definitions/MockEcommerceCart'
- */
 
 module.exports = function (app: core.Express) {
     /**
@@ -118,12 +110,12 @@ module.exports = function (app: core.Express) {
      *     parameters:
      *     - in: path
      *       name: qty
-     *       description: The number of carts you want
+     *       description: The number of products you want in your cart
      *     responses:
      *       '200':
      *         description: OK
      *         schema:
-     *           $ref: '#/definitions/MockEcommerceCartList'
+     *           $ref: '#/definitions/MockEcommerceCart'
      */
     app.get('/ecommerce/cart/:qty', (req: Request, res: Response) => {
         const ecommerceCart = getEcommerceCart(req);
